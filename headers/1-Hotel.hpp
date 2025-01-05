@@ -1,21 +1,19 @@
 #include <iostream>
 #include "2-Room.hpp"
-#include "3-Customer.hpp"
 
 class Hotel{
     private:
-    char* name;
-
-    char* location;
+    string name;
+    string location;
     int totalRooms;
     int availableRooms;
 
 
     public:
-    Hotel(char *, char* , int, int);
+    Hotel(string = "", string = "", int = 0, int = 0);
     void bookRoom(Room&);
-    void releaseRoom(Room&);
-    void checkOut(Customer&);
+    void releaseRoom(bool);
+    void checkOut(Room&);
     void displayDetails();
 
 };

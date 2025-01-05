@@ -1,18 +1,56 @@
 #include <iostream>
+#include <string>
+#include <cctype>
+#include <iomanip>
+using namespace std;
 
 
 class Room{
-    private:
-    char* type;
-    int price;
+    protected:
+    string type;
+    double price;
     int roomNum;
     bool status;
 
 
     public:
-    Room(char *,int, int, bool);
-    void updateStatus();
+    Room(string = "", double = 0.0, int = 0)
+    {};
+    bool updateStatus(int);
     void getPrice();
-    void displayPrice();
+    virtual void displayInfo();
+
+};
+
+class SingleRoom : public Room
+ {
+    private:
+    int RoomNum;
+    bool status;
+
+    public:
+    void displayInfo();
+
+};
+
+class DoubleRoom : public Room
+ {
+    private:
+    int RoomNum;
+    bool status;
+
+    public:
+    void displayInfo();
+
+};
+
+class Suite : public Room
+ {
+    private:
+    int RoomNum;
+    bool status;
+
+    public:
+    void displayInfo();
 
 };

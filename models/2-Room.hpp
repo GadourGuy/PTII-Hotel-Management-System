@@ -6,7 +6,7 @@ using namespace std;
 
 
 class Room{
-    private:
+    protected:
     string type;
     double price;
     int roomNum;
@@ -14,10 +14,46 @@ class Room{
 
 
     public:
-    Room(string = "", double = 0.0, int = 0)
+    Room(string = "", double = 0.0, int = 0, bool d = false)
     {};
     bool updateStatus(int);
     void getPrice();
     virtual void displayInfo();
+
+};
+
+class SingleRoom : public Room
+ {
+    private:
+    int RoomNum;
+    bool status;
+
+    public:
+    SingleRoom(double = 0.0, int = 0, bool = false);
+    void displayInfo();
+
+};
+
+class DoubleRoom : public Room
+ {
+    private:
+    int RoomNum;
+    bool status;
+
+    public:
+    DoubleRoom(double = 0.0, int = 0, bool = false);
+    void displayInfo();
+
+};
+
+class Suite : public Room
+ {
+    private:
+    int RoomNum;
+    bool status;
+
+    public:
+    Suite(double = 0.0, int = 0, bool = false);
+    void displayInfo();
 
 };

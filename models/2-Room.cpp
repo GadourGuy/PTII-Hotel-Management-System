@@ -1,6 +1,6 @@
     #include "2-Room.hpp"
 
-    Room :: Room (string a, double b, int c):type(a),price(b),roomNum(c),status(false){}
+    Room :: Room (string a, double b, int c, bool d):type(a),price(b),roomNum(c),status(d){}
 
     bool Room :: updateStatus(int roomnum)
     {   
@@ -87,3 +87,25 @@
             cout<<"Occupied";
         }
     };
+//single room
+SingleRoom :: SingleRoom ( double b, int c, bool d) : Room("Single", b, c, d){}
+
+    void SingleRoom :: displayInfo()
+{
+    Room :: displayInfo();
+};
+
+//Double room
+DoubleRoom :: DoubleRoom ( double b, int c, bool d) : Room("Double", b, c, d){}
+
+    void DoubleRoom :: displayInfo()
+{
+    Room :: displayInfo();
+};
+
+//suite
+Suite :: Suite ( double b, int c, bool d) : Room("Suite", b, c, d){}
+    void Suite :: displayInfo()
+{
+    Room :: displayInfo();
+};
