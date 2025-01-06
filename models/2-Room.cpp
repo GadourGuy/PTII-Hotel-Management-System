@@ -1,6 +1,10 @@
 #include "../headers/2-Room.hpp"
 
+<<<<<<< HEAD
 Room :: Room (string a, double b, int c):type(a),price(b),roomNum(c),status(false){}
+=======
+    Room :: Room (string a, double b, int c, bool d):type(a),price(b),roomNum(c),status(d){}
+>>>>>>> 4fd81f0b1c1cb6bd60c4f01ccfb5d557ea226f6f
 
 bool Room :: updateStatus(int roomnum) {   
     roomNum = roomnum;
@@ -83,19 +87,42 @@ bool Room :: updateStatus(int roomnum) {
             cout<<"Occupied";
         }
     };
+<<<<<<< HEAD
 
 void SingleRoom :: displayInfo()
+=======
+//single room
+SingleRoom :: SingleRoom ( double b, int c, bool d) : Room("Single", b, c, d){}
+
+    void SingleRoom :: displayInfo()
+>>>>>>> 4fd81f0b1c1cb6bd60c4f01ccfb5d557ea226f6f
 {
     Room :: displayInfo();
 };
 
+<<<<<<< HEAD
 
 void DoubleRoom :: displayInfo()
+=======
+//Double room
+DoubleRoom :: DoubleRoom ( double b, int c, bool d) : Room("Double", b, c, d){}
+
+    void DoubleRoom :: displayInfo()
+>>>>>>> 4fd81f0b1c1cb6bd60c4f01ccfb5d557ea226f6f
 {
     Room :: displayInfo();
 };
 
+<<<<<<< HEAD
 void Suite :: displayInfo()
 {
     Room :: displayInfo();
 };
+=======
+//suite
+Suite :: Suite ( double b, int c, bool d) : Room("Suite", b, c, d){}
+    void Suite :: displayInfo()
+{
+    Room :: displayInfo();
+};
+>>>>>>> 4fd81f0b1c1cb6bd60c4f01ccfb5d557ea226f6f

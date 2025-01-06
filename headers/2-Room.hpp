@@ -6,7 +6,8 @@ using namespace std;
 
 
 class Room{
-    private:
+
+    protected:
     string type;
     double price;
     int roomNum;
@@ -28,6 +29,8 @@ class SingleRoom : public Room
     bool status;
 
     public:
+
+    SingleRoom(double = 0.0, int = 0, bool = false);
     void displayInfo();
 
 };
@@ -39,6 +42,7 @@ class DoubleRoom : public Room
     bool status;
 
     public:
+    DoubleRoom(double = 0.0, int = 0, bool = false);
     void displayInfo();
 
 };
@@ -50,6 +54,7 @@ class Suite : public Room
     bool status;
 
     public:
+    Suite(double = 0.0, int = 0, bool = false);
     void displayInfo();
 
 };
