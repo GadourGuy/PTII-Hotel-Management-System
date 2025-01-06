@@ -1,21 +1,23 @@
-#ifndef SERVICE_H
-#define SERVICE_H
-#include <iostream>
+#ifndef SERVICE_HPP
+#define SERVICE_HPP
 
-class Service{
-    private:
-    char* description;
-    char* serviceID;
-    int price;
-    char* type;
+#include <string>
+
+class Service {
+public:
+    Service(const std::string& serviceID, const std::string& type, double price, const std::string& description);
 
 
-    public:
-    Service(char* , char*, int, char*);
-    void bookService();
-    void cancelService();
-    void displayServiceDetails();
 
+    void bookService();                
+    void cancelService();           
+    void displayServiceDetails() const; 
+
+private:
+    std::string serviceID;  
+    std::string type;       
+    double price;           // Cost of the service
+    std::string description; // Description of the service provided
 };
 
-#endif
+#endif // SERVICE_HPP
