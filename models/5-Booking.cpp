@@ -18,12 +18,14 @@ double Booking::calculateTotal() const {
 
 // Method to display booking details
 void Booking::displayBookingDetails() const {
-    cout << "Booking Details:\n";
-    cout << "Booking ID: " << bookingID << endl;
+    cout << "\nBooking Details:\n";
+    cout << "Booking ID      : " << bookingID << endl;
     cout << "Customer Details:\n";
-    customer.displayInfo(); 
+    customer.displayInfo();
+    
     cout << "Room Details:\n";
-    room.displayInfo();  
-    cout << "Check-In Date: " << checkInDate << endl;
-    cout << "Check-Out Date: " << checkOutDate << endl;
+    room.displayInfo();
+    cout << "Check-In Date   : " << checkInDate << endl;
+    cout << "Check-Out Date  : " << checkOutDate << endl;
+    cout << "Total Cost      : $" << calculateTotal() << endl;
 }

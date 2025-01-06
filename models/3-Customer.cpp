@@ -30,6 +30,7 @@ void Customer::updateContactInfo(const string& newContactInfo) {
 // Method to display info for customr class
 void Customer::displayInfo() const {
     Person::displayInfo();
-    cout << "Customer ID: " << customerID << endl;
-    cout << "Booking History: " << bookingHistory << endl;
+    cout << "    Name          : " << name << endl;
+    cout << "    Contact Info  : " << contactInfo << endl;
+    cout << "    Customer ID   : " << customerID << endl;
 }

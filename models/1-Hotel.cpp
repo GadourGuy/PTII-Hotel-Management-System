@@ -1,11 +1,13 @@
 #include "../headers/1-Hotel.hpp"
+
+
     // Hotel Constructor
     Hotel :: Hotel (string a, string b, int c, int d) : name(a), location(b), totalRooms(c), availableRooms(d){}
 
     // Method for booking a room
     void Hotel :: bookRoom (Room& room)
     {
-        cout << "which room do you want to book or checkout (Enter Room Number) : " << endl;
+        cout << "which room do you want to book or checkout (Enter Room Number) : ";
         int roomnum;
         cin >> roomnum;
         bool x = room.updateStatus(roomnum);
@@ -43,8 +45,9 @@
     // A Method that displayes Details of the hotel
     void Hotel :: displayDetails()
     {
-        cout << setw(25) << "Hotel name : " << name << endl;
-        cout << setw(25) << "Hotel location : "<< location << endl;
-        cout << setw(25) << "Hotel total rooms" << totalRooms << endl;
-        cout << setw(25) << "Hotel available rooms" << availableRooms << endl;
+        cout << "\nHotel Details:\n";
+        cout << "  Hotel Name      : " << name << endl;
+        cout << "  Location        : " << location << endl;
+        cout << "  Total Rooms     : " << totalRooms << endl;
+        cout << "  Available Rooms : " << availableRooms << endl;
     };

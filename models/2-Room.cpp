@@ -69,14 +69,11 @@ double Room::getPrice() const {
 
 // Method to display room information
 void Room::displayInfo() const {
-    cout << setw(15) << "Room number : " << roomNum << endl;
-    cout << setw(15) << "Room price : " << price << endl;
-    cout << setw(15) << "Room status : ";
-    if (status) {
-        cout << "empty\n";
-    } else {
-        cout << "occupied\n";
-    }
+    cout << "  Room Type     : " << type << endl;
+    cout << "  Room Number   : " << roomNum << endl;
+    cout << "  Room Price    : $" << price << endl;
+    cout << "  Room Status   : " << (status ? "Empty" : "Occupied") << endl;
+    
 }
 
 // SingleRoom constructor
@@ -87,4 +84,14 @@ DoubleRoom::DoubleRoom(double b, int c, bool d) : Room("Double", b, c, d) {}
 
 // Suite constructor
 Suite::Suite(double b, int c, bool d) : Room("Suite", b, c, d) {}
+
+void SingleRoom::displayInfo() {
+    cout << "Single Room Info:\n";
+    Room::displayInfo();
+}
+
+void DoubleRoom::displayInfo(){
+    cout << "Double Room Info:\n";
+    Room::displayInfo();
+}
 
