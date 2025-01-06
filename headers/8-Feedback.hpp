@@ -9,10 +9,10 @@ public:
 
     Feedback(char* ID, int rating, char* comment, const Customer& customer);
     
-    // Destructor
+    
     ~Feedback();
 
-    // Methods
+  
     void submitFeedback();       
     void displayFeedback() const; 
     void analyzeFeedback() const; 

@@ -16,8 +16,8 @@ public:
 private:
     std::string serviceID;  
     std::string type;       
-    double price;           // Cost of the service
-    std::string description; // Description of the service provided
+    double price;           
+    std::string description; 
 };
 
-#endif // SERVICE_HPP
+#endif 

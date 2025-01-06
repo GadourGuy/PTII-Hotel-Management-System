@@ -6,7 +6,7 @@ using namespace std;
 
 // Constructor for Feedback
 Feedback::Feedback(char* ID, int rating, char* c, const Customer& customer)
-    : customer(customer), rating(rating) { // Use initializer list for `customer` and `rating`
+    : customer(customer), rating(rating) {
     feedbackID = new char[strlen(ID) + 1];
     strcpy(feedbackID, ID);
 
@@ -42,9 +42,9 @@ void Feedback::displayFeedback() const {
 // Method to analyze feedback
 void Feedback::analyzeFeedback() const {
     cout << "Analyzing feedback...\n";
-    if (rating > 4) {
+    if (rating > 7) {
         cout << "Positive feedback. Keep up the good work!\n";
-    } else if (rating >= 3) {
+    } else if (rating >= 3 && rating <= 7) {
         cout << "Neutral feedback. Room for improvement.\n";
     } else {
         cout << "Negative feedback. Immediate action required.\n";
