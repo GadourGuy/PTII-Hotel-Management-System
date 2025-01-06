@@ -20,8 +20,8 @@ class Room{
     public:
     Room(string a, double b, int c, bool d);
     bool updateStatus(int);
-    void getPrice();
-    virtual void displayInfo();
+    double getPrice() const;
+    virtual void displayInfo() const;
 
 };
 

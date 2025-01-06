@@ -1,22 +1,43 @@
-#include <iostream>
-#include <ctime>
+#ifndef PAYMENT_HPP
+#define PAYMENT_HPP
+
 #include "5-Booking.hpp"
-#include "2-Room.hpp"
+#include <string>
+
+using namespace std;
+
+class Payment {
+private:
+    string paymentID;       
+    Booking booking;        
+    double amount;          
+    string paymentMethod;   
+    string status;          
+
+public:
+    Payment(const string& paymentID, const Booking& booking, double amount, 
+            const string& paymentMethod, const string& status);
+
+ 
 
 
-class Payment{
-    private:
-    Booking booking;
-    char* PaymentID;
-    int amount;
-    char* paymentMethod;
-    bool status;
+    
+    bool processPayment();
 
-
-    public:
-    Payment(Booking, char* , int, char* ,bool);
-    void processPayment();
+    
     void refundPayment();
-    void displayPaymentDetails();
 
+    
+    void displayPaymentDetails() const;
+
+
+    string getPaymentID() const;
+    double getAmount() const;
+    string getPaymentMethod() const;
+    string getStatus() const;
+
+   
+    void setStatus(const string& newStatus);
 };
+
+#endif

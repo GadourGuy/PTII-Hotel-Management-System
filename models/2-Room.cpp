@@ -62,12 +62,13 @@ bool Room::updateStatus(int roomnum) {
 }
 
 // Method to display room price
-void Room::getPrice() {
+double Room::getPrice() const {
     cout << "The price of room " << roomNum << " is " << price << ".\n";
+    return price;
 }
 
 // Method to display room information
-void Room::displayInfo() {
+void Room::displayInfo() const {
     cout << setw(15) << "Room number : " << roomNum << endl;
     cout << setw(15) << "Room price : " << price << endl;
     cout << setw(15) << "Room status : ";
