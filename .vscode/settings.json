@@ -3,6 +3,7 @@
         "string": "cpp",
         "iostream": "cpp",
         "cctype": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "xstring": "cpp"
     }
 }

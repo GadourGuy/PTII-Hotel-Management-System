@@ -3,7 +3,7 @@
 // Room constructor
 Room::Room(string a, double b, int c, bool d) : type(a), price(b), roomNum(c), status(d) {}
 
-// Function to update room status
+// Method to update room status
 bool Room::updateStatus(int roomnum) {
     roomNum = roomnum;
     cout << "Room booking or Room checkout (answer with booking or checkout) ====> ";
@@ -61,12 +61,12 @@ bool Room::updateStatus(int roomnum) {
     }
 }
 
-// Function to display room price
+// Method to display room price
 void Room::getPrice() {
     cout << "The price of room " << roomNum << " is " << price << ".\n";
 }
 
-// Function to display room information
+// Method to display room information
 void Room::displayInfo() {
     cout << setw(15) << "Room number : " << roomNum << endl;
     cout << setw(15) << "Room price : " << price << endl;

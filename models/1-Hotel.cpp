@@ -1,7 +1,8 @@
 #include "../headers/1-Hotel.hpp"
-
+    // Hotel Constructor
     Hotel :: Hotel (string a, string b, int c, int d) : name(a), location(b), totalRooms(c), availableRooms(d){}
 
+    // Method for booking a room
     void Hotel :: bookRoom (Room& room)
     {
         cout << "which room do you want to book or checkout (Enter Room Number) : " << endl;
@@ -16,7 +17,7 @@
             cout << " booking failed";
         }
     };
-
+    // Method for releasing a room
     void Hotel :: releaseRoom(bool x) {
 
         if(!x) { 
@@ -29,6 +30,7 @@
 
     };
 
+    // Method for Checking out of hotel
     void Hotel :: checkOut(Room &room) {
         cout << "which room do you want to book or checkout : " << endl;
         int roomnum;
@@ -38,6 +40,7 @@
         
     };
 
+    // A Method that displayes Details of the hotel
     void Hotel :: displayDetails()
     {
         cout << setw(25) << "Hotel name : " << name << endl;
