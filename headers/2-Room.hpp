@@ -15,7 +15,7 @@ class Room{
 
 
     public:
-    Room(string a, double b, int c);
+    Room(string a, double b, int c, bool d);
     bool updateStatus(int);
     void getPrice();
     virtual void displayInfo();
