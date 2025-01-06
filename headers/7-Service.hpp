@@ -1,3 +1,5 @@
+#ifndef SERVICE_H
+#define SERVICE_H
 #include <iostream>
 
 class Service{
@@ -15,3 +17,5 @@ class Service{
     void displayServiceDetails();
 
 };
+
+#endif

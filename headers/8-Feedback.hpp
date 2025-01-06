@@ -1,3 +1,6 @@
+#ifndef FEEDBACK_H
+#define FEEDBACK_H
+
 #include <iostream>
 #include "3-Customer.hpp"
 
@@ -17,3 +20,5 @@ class Feedback{
     void displayPaymentDetails();
 
 };
+
+#endif

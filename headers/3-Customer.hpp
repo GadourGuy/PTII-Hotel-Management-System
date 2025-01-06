@@ -1,16 +1,26 @@
 #include <iostream>
+#include <string>
 
-class Customer{
-    private:
-    char* name;
-    char* CustomerID;
-    int contactInfo;
-    char* History;
+using namespace std;
 
+class Person {
+protected:
+    string name;
+    string contactInfo;
 
-    public:
-    Customer(char *, char* , int, int);
-    void UpdateContactInfo();
-    void displayDetails();
+public:
+    Person(string name, string contactInfo);
+    void updateContactInfo(const string& newContactInfo);
+    void displayInfo() const;
+};
 
+class Customer : public Person {
+private:
+    string customerID;
+    string bookingHistory;
+
+public:
+    Customer(string name, string contactInfo, string customerID);
+    void updateContactInfo(const string& newContactInfo);
+    void displayInfo() const;
 };

@@ -1,41 +1,35 @@
-#include "1-Hotel.hpp"
+#include "../headers/1-Hotel.hpp"
 
     Hotel :: Hotel (string a, string b, int c, int d) : name(a), location(b), totalRooms(c), availableRooms(d){}
 
     void Hotel :: bookRoom (Room& room)
     {
-        cout << "which room do you want to book or checkout : " << endl;
+        cout << "which room do you want to book or checkout (Enter Room Number) : " << endl;
         int roomnum;
         cin >> roomnum;
         bool x = room.updateStatus(roomnum);
-        if(x)
-        { 
-        availableRooms -= 1;
-        cout << "Booking confirmed";
+        if(x) { 
+            availableRooms -= 1;
+            cout << "Booking confirmed" << endl;
         }
-        else if(x)
-        {
-        cout << " booking failed";
+        else if(x) {
+            cout << " booking failed";
         }
     };
 
-    void Hotel :: releaseRoom(bool x)
-    {
+    void Hotel :: releaseRoom(bool x) {
 
-        if(!x)
-        { 
-        availableRooms += 1;
-        cout << "checkout confirmed";
+        if(!x) { 
+            availableRooms += 1;
+            cout << "checkout confirmed";
         }
-        else if(x)
-        {
-        cout << "checkout failed";
+        else if(x) {
+            cout << "checkout failed";
         }
 
     };
 
-    void Hotel :: checkOut(Room &room)
-    {
+    void Hotel :: checkOut(Room &room) {
         cout << "which room do you want to book or checkout : " << endl;
         int roomnum;
         cin >> roomnum;
