@@ -1,24 +1,27 @@
-#ifndef FEEDBACK_H
-#define FEEDBACK_H
+#ifndef FEEDBACK_HPP
+#define FEEDBACK_HPP
 
-#include <iostream>
 #include "3-Customer.hpp"
+#include <string>
 
+class Feedback {
+public:
 
-class Feedback{
-    private:
-    char* feedbackID;
-    int rating;
-    char* comment;
-    Customer customer;
+    Feedback(char* ID, int rating, char* comment, const Customer& customer);
+    
+    // Destructor
+    ~Feedback();
 
+    // Methods
+    void submitFeedback();       
+    void displayFeedback() const; 
+    void analyzeFeedback() const; 
 
-    public:
-    Feedback(char*, int, char*, Customer);
-    void processPayment();
-    void refundPayment();
-    void displayPaymentDetails();
-
+private:
+    char* feedbackID;            
+    Customer customer;          
+    int rating;  
+    char* comment;                
 };
 
-#endif
+#endif 

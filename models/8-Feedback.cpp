@@ -1,38 +1,52 @@
 #include "../headers/8-Feedback.hpp"
-#include "../headers/3-Customer.hpp"
+#include <iostream>
 #include <cstring>
 
-// Constructor definition
-Feedback::Feedback(char* ID, int rating, char* comment, Customer customer)
-     {
+using namespace std;
+
+// Constructor for Feedback
+Feedback::Feedback(char* ID, int rating, char* c, const Customer& customer)
+    : customer(customer), rating(rating) { // Use initializer list for `customer` and `rating`
     feedbackID = new char[strlen(ID) + 1];
     strcpy(feedbackID, ID);
 
-    // Deep copy for comment
-    this->comment = new char[strlen(comment) + 1];
-    strcpy(this->comment, comment);
+    comment = new char[strlen(c) + 1];
+    strcpy(comment, c);
 }
 
-// Method to process payment
-void Feedback::processPayment() {
-    std::cout << "Processing payment for feedback ID: " << feedbackID << std::endl;
-}
-
-// Method to refund payment
-void Feedback::refundPayment() {
-    std::cout << "Refunding payment for feedback ID: " << feedbackID << std::endl;
-}
-
-// Method to display payment details
-void Feedback::displayPaymentDetails() {
-    std::cout << "Feedback ID: " << feedbackID << std::endl;
-    std::cout << "Rating: " << rating << std::endl;
-    std::cout << "Comment: " << comment << std::endl;
-    customer.displayDetails(); // Assuming Customer has a displayDetails() method
-}
-
-// Destructor to clean up dynamic memory
+// Destructor to clean up memory
 Feedback::~Feedback() {
     delete[] feedbackID;
     delete[] comment;
+}
+
+// Method to submit feedback
+void Feedback::submitFeedback() {
+    cout << "Submitting feedback...\n";
+    cout << "Feedback submitted successfully for Customer: "; 
+    customer.displayInfo();
+
+}
+
+// Method to display feedback details
+void Feedback::displayFeedback() const {
+    cout << "Feedback Details:\n";
+    cout << "Feedback ID: " << feedbackID << "\n";
+    cout << "Customer: ";
+    customer.displayInfo();
+    cout << endl;
+    cout << "Rating: " << rating << "\n";
+    cout << "Comment: " << comment << "\n";
+}
+
+// Method to analyze feedback
+void Feedback::analyzeFeedback() const {
+    cout << "Analyzing feedback...\n";
+    if (rating > 4) {
+        cout << "Positive feedback. Keep up the good work!\n";
+    } else if (rating >= 3) {
+        cout << "Neutral feedback. Room for improvement.\n";
+    } else {
+        cout << "Negative feedback. Immediate action required.\n";
+    }
 }

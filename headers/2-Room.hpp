@@ -1,3 +1,6 @@
+#ifndef ROOM_HPP
+#define ROOM_HPP
+
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -58,3 +61,5 @@ class Suite : public Room
     void displayInfo();
 
 };
+
+#endif

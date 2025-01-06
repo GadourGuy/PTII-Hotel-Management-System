@@ -1,5 +1,5 @@
-#ifndef STAFF_H
-#define STAFF_H
+#ifndef STAFF_HPP
+#define STAFF_HPP
 #include "3-Customer.hpp"
 #include <iostream>
 

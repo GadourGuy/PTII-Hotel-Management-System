@@ -1,4 +1,4 @@
-#include "./4-Staff.hpp"
+#include "../headers/4-Staff.hpp"
 
 // Constructor for Staff class inherating from Person
 Staff::Staff(string name, string contactInfo, string staffID, string position)

@@ -1,3 +1,6 @@
+#ifndef CUSTOMER_HPP
+#define CUSTOMER_HPP
+
 #include <iostream>
 #include <string>
 
@@ -24,3 +27,5 @@ public:
     void updateContactInfo(const string& newContactInfo);
     void displayInfo() const;
 };
+
+#endif
