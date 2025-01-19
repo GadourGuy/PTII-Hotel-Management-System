@@ -14,8 +14,8 @@ public:
     Booking(const string& bookingID, const Customer& customer, const Room& room,
             const string& checkInDate, const string& checkOutDate);
 
-    virtual double calculateTotal() const; // Make this method virtual for polymorphism
-    virtual void displayBookingDetails() const; // Make this method virtual for polymorphism
+    virtual double calculateTotal() const; // Made this method virtual for polymorphism
+    virtual void displayBookingDetails() const; // Made this method virtual for polymorphism
 
     // Getters
     string getBookingID() const;
@@ -36,7 +36,7 @@ public:
     ShortTermBooking(const string& bookingID, const Customer& customer, const Room& room,
                      const string& checkInDate, const string& checkOutDate);
     
-    double calculateTotal() const override; // Override for specific behavior
+    double calculateTotal() const override; // Override the function
 };
 
 // Derived Class: LongTermBooking

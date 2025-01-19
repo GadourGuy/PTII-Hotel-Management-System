@@ -12,9 +12,9 @@ public:
     Payment(const string& paymentID, const Booking& booking, double amount, 
             const string& paymentMethod, const string& status);
 
-    virtual bool processPayment(); // Make this method virtual for polymorphism
-    virtual void refundPayment();   // Make this method virtual for polymorphism
-    virtual void displayPaymentDetails() const; // Make this method virtual for polymorphism
+    virtual bool processPayment(); // Made this method virtual for polymorphism
+    virtual void refundPayment();   // Made this method virtual for polymorphism
+    virtual void displayPaymentDetails() const; // Made this method virtual for polymorphism
 
     // Getters
     string getPaymentID() const;
@@ -37,7 +37,7 @@ public:
     CreditCardPayment(const string& paymentID, const Booking& booking, double amount, 
                       const string& cardNumber, const string& status);
     
-    bool processPayment() override; // Override for specific behavior
+    bool processPayment() override; // Override function
 
 private:
     string cardNumber; // Card number for credit card payment
@@ -49,7 +49,7 @@ public:
     CashPayment(const string& paymentID, const Booking& booking, double amount, 
                 const string& status);
     
-    bool processPayment() override; // Override for specific behavior
+    bool processPayment() override; // Override function
 };
 
 #endif 
