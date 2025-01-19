@@ -4,6 +4,8 @@
         "iostream": "cpp",
         "cctype": "cpp",
         "iomanip": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "iosfwd": "cpp",
+        "xlocbuf": "cpp"
     }
 }

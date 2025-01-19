@@ -6,22 +6,42 @@
 
 class Feedback {
 public:
+    Feedback(const std::string& feedbackID, int rating, const std::string& comment, const Customer& customer);
+    virtual ~Feedback();
 
-    Feedback(char* ID, int rating, char* comment, const Customer& customer);
-    
-    
-    ~Feedback();
+    virtual void submitFeedback();       
+    virtual void displayFeedback() const; 
+    virtual void analyzeFeedback() const; 
 
-  
-    void submitFeedback();       
-    void displayFeedback() const; 
-    void analyzeFeedback() const; 
-
-private:
-    char* feedbackID;            
+protected:
+    std::string feedbackID;            
     Customer customer;          
     int rating;  
-    char* comment;                
+    std::string comment;                
+};
+
+// Derived Class: RoomFeedback
+class RoomFeedback : public Feedback {
+public:
+    RoomFeedback(const std::string& feedbackID, int rating, const std::string& comment, 
+                 const Customer& customer, const std::string& roomNumber);
+    
+    void displayFeedback() const override; // Override for specific behavior
+
+private:
+    std::string roomNumber; // Room number related to feedback
+};
+
+// Derived Class: ServiceFeedback
+class ServiceFeedback : public Feedback {
+public:
+    ServiceFeedback(const std::string& feedbackID, int rating, const std::string& comment, 
+                    const Customer& customer, const std::string& serviceType);
+    
+    void displayFeedback() const override; // Override for specific behavior
+
+private:
+    std::string serviceType; // Type of service related to feedback
 };
 
 #endif 

@@ -1,97 +1,88 @@
 #include "../headers/2-Room.hpp"
+#include <iostream>
+#include <algorithm>
 
-// Room constructor
-Room::Room(string a, double b, int c, bool d) : type(a), price(b), roomNum(c), status(d) {}
+using namespace std;
 
-// Method to update room status
-bool Room::updateStatus(int roomnum) {
-    roomNum = roomnum;
-    cout << "Room booking or Room checkout (answer with booking or checkout) ====> ";
-    string state;
-    cin >> state;
+// Room Constructor
+Room::Room(const string& type, double price, int roomNum, bool status)
+    : type(type), price(price), roomNum(roomNum), status(status) {}
 
-    // Convert state to lowercase
-    for (int i = 0; i < state.size(); i++) {
-        state[i] = tolower(state[i]);
-    }
+// Virtual Destructor
+Room::~Room() {}
 
-    if (state == "booking") {
-        cout << "Do you want to book this room? (yes/no): ";
-        string ans;
-        cin >> ans;
+// Update Room Status (Booking or Checkout)
+bool Room::updateStatus() {
+    cout << "Room booking or checkout (Enter 'booking' or 'checkout'): ";
+    string action;
+    cin >> action;
 
-        // Convert ans to lowercase
-        for (int i = 0; i < ans.size(); i++) {
-            ans[i] = tolower(ans[i]);
-        }
+    // Convert input to lowercase
+    transform(action.begin(), action.end(), action.begin(), ::tolower);
 
-        if (ans == "yes") {
-            status = false; // Room is now occupied
-            return true;
-        } else if (ans == "no") {
-            cout << "Room remains empty.\n";
-            return false;
-        } else {
-            cout << "Error: Invalid input type.\n";
-            return false;
-        }
-    } else if (state == "checkout") {
-        cout << "Do you want to checkout from this room? (yes/no): ";
-        string ans;
-        cin >> ans;
-
-        // Convert ans to lowercase
-        for (int i = 0; i < ans.size(); i++) {
-            ans[i] = tolower(ans[i]);
-        }
-
-        if (ans == "yes") {
-            status = true; // Room is now empty
-            return true;
-        } else if (ans == "no") {
-            cout << "Room remains occupied.\n";
-            return false;
-        } else {
-            cout << "Error: Invalid input type.\n";
-            return false;
-        }
+    if (action == "booking" && status) {
+        status = false; // Room is now occupied
+        cout << "Room #" << roomNum << " has been successfully booked.\n";
+        return true;
+    } else if (action == "checkout" && !status) {
+        status = true; // Room is now empty
+        cout << "Room #" << roomNum << " has been successfully checked out.\n";
+        return true;
     } else {
-        cout << "Error: Invalid state input.\n";
+        cout << "Invalid action or room is already in the desired state.\n";
         return false;
     }
 }
 
-// Method to display room price
+// Get Room Price
 double Room::getPrice() const {
-    cout << "The price of room " << roomNum << " is " << price << ".\n";
     return price;
 }
 
-// Method to display room information
+// Display Room Information
 void Room::displayInfo() const {
-    cout << "  Room Type     : " << type << endl;
-    cout << "  Room Number   : " << roomNum << endl;
-    cout << "  Room Price    : $" << price << endl;
-    cout << "  Room Status   : " << (status ? "Empty" : "Occupied") << endl;
-    
+    cout << "Room Details:\n";
+    cout << "  Type       : " << type << endl;
+    cout << "  Number     : " << roomNum << endl;
+    cout << "  Price      : $" << fixed << setprecision(2) << price << endl;
 }
 
-// SingleRoom constructor
-SingleRoom::SingleRoom(double b, int c, bool d) : Room("Single", b, c, d) {}
+// Get Room Number
+int Room::getRoomNumber() const {
+    return roomNum;
+}
 
-// DoubleRoom constructor
-DoubleRoom::DoubleRoom(double b, int c, bool d) : Room("Double", b, c, d) {}
+// Check Availability
+bool Room::isAvailable() const {
+    return status;
+}
 
-// Suite constructor
-Suite::Suite(double b, int c, bool d) : Room("Suite", b, c, d) {}
+// SingleRoom Constructor
+SingleRoom::SingleRoom(double price, int roomNum, bool status)
+    : Room("Single", price, roomNum, status) {}
 
-void SingleRoom::displayInfo() {
-    cout << "Single Room Info:\n";
+// Overridden Display Info
+void SingleRoom::displayInfo() const {
+    cout << "Single Room Details:\n";
     Room::displayInfo();
 }
 
-void DoubleRoom::displayInfo(){
-    cout << "Double Room Info:\n";
+// DoubleRoom Constructor
+DoubleRoom::DoubleRoom(double price, int roomNum, bool status)
+    : Room("Double", price, roomNum, status) {}
+
+// Overridden Display Info
+void DoubleRoom::displayInfo() const {
+    cout << "Double Room Details:\n";
     Room::displayInfo();
 }
 
+// Suite Constructor
+Suite::Suite(double price, int roomNum, bool status)
+    : Room("Suite", price, roomNum, status) {}
+
+// Overridden Display Info
+void Suite::displayInfo() const {
+    cout << "Suite Details:\n";
+    Room::displayInfo();
+}

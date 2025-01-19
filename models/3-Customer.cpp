@@ -1,36 +1,61 @@
 #include "../headers/3-Customer.hpp"
+#include <iostream>
 using namespace std;
 
-
-// Constructor for parent class "Person"
-Person::Person(string name, string contactInfo) 
+// Constructor for Person
+Person::Person(const string& name, const string& contactInfo)
     : name(name), contactInfo(contactInfo) {}
 
-// Method to update person contact info
+// Virtual Destructor for Person
+Person::~Person() {}
+
+// Update Contact Info (Person)
 void Person::updateContactInfo(const string& newContactInfo) {
     contactInfo = newContactInfo;
+    cout << "Contact information updated successfully.\n";
 }
 
-// Method to display person info
+// Display Info (Person)
 void Person::displayInfo() const {
-    cout << "Name: " << name << endl;
-    cout << "Contact Info: " << contactInfo << endl;
+    cout << "Person Details:\n";
+    cout << "  Name         : " << name << "\n";
+    cout << "  Contact Info : " << contactInfo << "\n";
 }
 
-// constructor for customer class inherating from Person
-Customer::Customer(string name, string contactInfo, string customerID)
+// Getter for Name (Person)
+std::string Person::getName() const {
+    return name;
+}
+
+// Constructor for Customer
+Customer::Customer(const string& name, const string& contactInfo, const string& customerID)
     : Person(name, contactInfo), customerID(customerID) {}
 
-
-// Method to Update contact info for customr class
+// Update Contact Info (Customer)
 void Customer::updateContactInfo(const string& newContactInfo) {
-    contactInfo = newContactInfo;
+    Person::updateContactInfo(newContactInfo);
+    cout << "Customer-specific contact info updated.\n";
 }
 
-// Method to display info for customr class
+// Display Info (Customer)
 void Customer::displayInfo() const {
-    Person::displayInfo();
-    cout << "    Name          : " << name << endl;
-    cout << "    Contact Info  : " << contactInfo << endl;
-    cout << "    Customer ID   : " << customerID << endl;
+    cout << "Customer Details:\n";
+    cout << "  Name         : " << name << endl;
+    cout << "  Contact Info : " << contactInfo << endl;
+    cout << "  Customer ID  : " << customerID << endl;
+    cout << "  Booking History: " << (bookingHistory.empty() ? "None" : bookingHistory) << endl;
+}
+
+// Update Booking History
+void Customer::updateBookingHistory(const string& bookingDetails) {
+    if (!bookingHistory.empty()) {
+        bookingHistory += "; ";
+    }
+    bookingHistory += bookingDetails;
+    cout << "Booking history updated successfully.\n";
+}
+
+// Getter for Name (Customer)
+std::string Customer::getName() const {
+    return Person::getName(); // Inherits functionality from base class
 }

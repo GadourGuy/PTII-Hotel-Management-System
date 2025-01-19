@@ -5,61 +5,59 @@
 #include <string>
 #include <cctype>
 #include <iomanip>
-using namespace std;
 
+class Room {
+public:
+    // Constructor
+    Room(const std::string& type, double price, int roomNum, bool status);
 
-class Room{
+    // Virtual Destructor for Polymorphism
+    virtual ~Room();
 
-    protected:
-    string type;
-    double price;
-    int roomNum;
-    bool status;
+    // Public Methods
+    virtual bool updateStatus();              // Update room booking/checkout status
+    double getPrice() const;                  // Get room price
+    virtual void displayInfo() const;         // Display room information
 
+    // Getters
+    int getRoomNumber() const;
+    bool isAvailable() const;
 
-    public:
-    Room(string a, double b, int c, bool d);
-    bool updateStatus(int);
-    double getPrice() const;
-    virtual void displayInfo() const;
-
+protected:
+    std::string type;  // Room type
+    double price;      // Room price
+    int roomNum;       // Room number
+    bool status;       // Room availability: true = empty, false = occupied
 };
 
-class SingleRoom : public Room
- {
-    private:
-    int RoomNum;
-    bool status;
+// Derived Class: SingleRoom
+class SingleRoom : public Room {
+public:
+    // Constructor
+    SingleRoom(double price = 0.0, int roomNum = 0, bool status = true);
 
-    public:
-
-    SingleRoom(double = 0.0, int = 0, bool = false);
-    void displayInfo();
-
+    // Overridden Method
+    void displayInfo() const override;
 };
 
-class DoubleRoom : public Room
- {
-    private:
-    int RoomNum;
-    bool status;
+// Derived Class: DoubleRoom
+class DoubleRoom : public Room {
+public:
+    // Constructor
+    DoubleRoom(double price = 0.0, int roomNum = 0, bool status = true);
 
-    public:
-    DoubleRoom(double = 0.0, int = 0, bool = false);
-    void displayInfo();
-
+    // Overridden Method
+    void displayInfo() const override;
 };
 
-class Suite : public Room
- {
-    private:
-    int RoomNum;
-    bool status;
+// Derived Class: Suite
+class Suite : public Room {
+public:
+    // Constructor
+    Suite(double price = 0.0, int roomNum = 0, bool status = true);
 
-    public:
-    Suite(double = 0.0, int = 0, bool = false);
-    void displayInfo();
-
+    // Overridden Method
+    void displayInfo() const override;
 };
 
 #endif
